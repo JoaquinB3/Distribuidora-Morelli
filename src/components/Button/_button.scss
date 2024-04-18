@@ -1,0 +1,13 @@
+.buttonFollow{
+    width: 80px;
+    height: 40px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3rem;
+    &:hover{
+        background-color:white;
+        color: black;
+    }
+}

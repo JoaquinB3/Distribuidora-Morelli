@@ -1,0 +1,14 @@
+#root {
+  margin: 0;
+  text-align: center;
+  display: flex;
+}
+
+.app{
+  display: flex;
+}
+
+.containerHome{
+  display: flex;
+  flex-direction: column;
+}
