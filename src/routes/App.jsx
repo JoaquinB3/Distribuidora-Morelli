@@ -1,9 +1,10 @@
-import './App.css'
-import { tableros } from './data/data'
-import { formattedDate, formattedTime } from './utils/getDate'
-import Header from './components/Header/Header'
-import TableroGestion from './components/TableroDeGestion/TableroGestion'
-import Fecha from './components/Fecha/Fecha'
+import '../App.css'
+import { tableros } from '../data/data'
+import { formattedDate, formattedTime } from '../utils/getDate'
+import Header from '../components/Header/Header'
+import TableroGestion from '../components/TableroDeGestion/TableroGestion'
+import Fecha from '../components/Fecha/Fecha'
+
 
 export default function App() {
 
