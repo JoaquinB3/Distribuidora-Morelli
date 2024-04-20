@@ -1,9 +1,13 @@
 import React from 'react'
 import "./_button.scss"
 
-export const Button = () => {
+export const Button = ({children,icon}) => {
+
   return (
-    <div className='buttonFollow'>Follow</div>
+      <button className='button'>
+        {icon}
+        {children}
+      </button>
   )
 }
 

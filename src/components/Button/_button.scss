@@ -1,4 +1,12 @@
-.buttonFollow{
+.containerButtons{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.button{
     width: 80px;
     height: 40px;
     background-color: black;

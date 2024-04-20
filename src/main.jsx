@@ -8,17 +8,25 @@ import './index.css'
 import App from './routes/App';
 import ErrorPage from './routes/ErrorPage';
 import Productos from './routes/Productos';
+import MainTablero from './components/MainTablero';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <MainTablero/>
+      },
+      {
+        path: "/productos",
+        element: <Productos />
+      },
+    ],
   },
-  {
-    path: "producto/",
-    element: <Productos />
-  }
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -4,6 +4,8 @@ import { formattedDate, formattedTime } from '../utils/getDate'
 import Header from '../components/Header/Header'
 import TableroGestion from '../components/TableroDeGestion/TableroGestion'
 import Fecha from '../components/Fecha/Fecha'
+import { Outlet } from 'react-router-dom'
+
 
 
 export default function App() {
@@ -18,14 +20,9 @@ export default function App() {
         <>
           <Fecha key={formattedDate} fecha={formattedDate} hora={formattedTime}/>
         </>
+
+        <Outlet/>   
           
-        <div className='containerTableros'>
-        {
-          tableros.map(tablero=>(
-            <TableroGestion key={tablero.name} name={tablero.name} numero={tablero.numero} fechaRegistro={tablero.fechaRegisto} color={tablero.color}/>
-          ))  
-        }
-        </div>
 
       </div>
       
