@@ -20,8 +20,9 @@ export default function App() {
         <>
           <Fecha key={formattedDate} fecha={formattedDate} hora={formattedTime}/>
         </>
-
-        <Outlet/>   
+        
+        <Outlet/>
+           
           
 
       </div>

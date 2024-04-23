@@ -3,7 +3,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
 }
 
 .button{
@@ -13,7 +12,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 3rem;
+    border-style: none;
+    margin: 10px;
     &:hover{
         background-color:white;
         color: black;
