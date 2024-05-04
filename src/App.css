@@ -1,7 +1,5 @@
 #root {
   margin: 0;
-  text-align: center;
-  display: flex;
 }
 
 .app{
@@ -9,9 +7,24 @@
   width: 100%;
 }
 
-.containerHome{
+.navBar{
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  width: calc(100% - 250px);
+  width: 250px;
+  background-color: rgb(29, 29, 29);
+  border-right: solid 1px white;
+}
+
+.containerHome{
+  width: 100%;
+}
+
+.mainProductos{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
