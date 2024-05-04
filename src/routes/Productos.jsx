@@ -8,20 +8,26 @@ import { IoMdSearch } from "react-icons/io";
 
 export default function Productos() {
   return (
-    <div className='containerButtons'>
-      <Button icon={< ImBoxAdd />}>
+    <div className='mainProductos'>
+      <div className='containerButtons'>
+      <Button icon={< ImBoxAdd />} onClick={clickAgregar}>
         Agregar
       </Button>
-      <Button icon={< GoPencil />}>
+      <Button icon={< GoPencil />} onClick={clickModificar}>
         Modificar
-      </Button>
-      <Button icon={< MdDeleteOutline />}>
+      </Button> 
+      <Button icon={< MdDeleteOutline />} onClick={clickElimar}>
         Eliminar
       </Button>
-      <Button icon={< IoMdSearch  />}>
+      <Button icon={< IoMdSearch  />} onClick={clickBuscar}>
         Buscar
       </Button>
-      
+      </div>
+
+      <div className='containerPCargados'>
+        <CargarProductos/>
+      </div>
+    
     </div>
   );
 }
