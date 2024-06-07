@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./_agregarProducto.scss"
 import { RxCross1 } from "react-icons/rx";
-import "../../utils/stock"
+import { stock } from '../../utils/stock'; 
 
 
 
@@ -12,12 +12,15 @@ export default function AgregarProducto({setIsClicked}) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const id = e.target.getElementById("id").value;
-        const nombre = e.target.getElementById("nombre");
-        const marca = e.target.getElementById("marca");
-        const tipo = e.target.getElementById("tipo");
-        const proveedor = e.target.getElementById("proveedor");
-        const cantidad = e.target.getElementById("cantidad")
+        // console.log(e.target);
+
+        const id = e.target.querySelector("#id").value;
+        // console.log(id);
+        const nombre = e.target.querySelector("#nombre").value;
+        const marca = e.target.querySelector("#marca").value;
+        const tipo = e.target.querySelector("#tipo").value;
+        const proveedor = e.target.querySelector("#proveedor").value;
+        const cantidad = e.target.querySelector("#cantidad").value;
         
         console.log('Producto cargado:', { id, nombre, marca, tipo, proveedor, cantidad });
         
@@ -34,40 +37,44 @@ export default function AgregarProducto({setIsClicked}) {
     };
 
     return (
-        <div className='containerAgregarProducto'>
-        <div className='containerButtonTitle'>
-            <h2>Cargar Producto</h2>
-            <button id="cerra" onClick={()=>setIsClicked(false)}><RxCross1 className='botonCerrar' /></button>
-        </div>
-        <form id='formulario' onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="id">ID:</label>
-                <input type="text" id="id" name="id" />
+        <div className='capaDisfuminada'>
+            <div className='containerAgregarProducto'>
+            <div className='containerButton'>
+                <button id="cerra" onClick={()=>setIsClicked(false)}><RxCross1 className='botonCerrar' /></button>
             </div>
-            <div>
-                <label htmlFor="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" />
+            <div className='containerTitle'>
+                <h2>Cargar Producto</h2>
             </div>
-            <div>
-                <label htmlFor="marca">Marca:</label>
-                <input type="text" id="marca" name="marca" />
+            <form id='formulario' onSubmit={(e)=>handleSubmit(e)}>
+                <div>
+                    <label htmlFor="id">ID:</label>
+                    <input type="text" id="id" name="id" />
+                </div>
+                <div>
+                    <label htmlFor="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" />
+                </div>
+                <div>
+                    <label htmlFor="marca">Marca:</label>
+                    <input type="text" id="marca" name="marca" />
+                </div>
+                <div>
+                    <label htmlFor="tipo">Tipo:</label>
+                    <input type="text" id="tipo" name="tipo" />
+                </div>
+                <div>
+                    <label htmlFor="proveedor">Proveedor:</label>
+                    <input type="text" id="proveedor" name="proveedor" />
+                </div>
+                <div>
+                    <label htmlFor="cantidad">Cantidad:</label>
+                    <input type="text" id="cantidad" name="cantidad" />
+                </div>
+                <div className='containerButtonCargar'>
+                    <button type="submit">Cargar Producto</button>
+                </div>
+            </form>
             </div>
-            <div>
-                <label htmlFor="tipo">Tipo:</label>
-                <input type="text" id="tipo" name="tipo" />
-            </div>
-            <div>
-                <label htmlFor="proveedor">Proveedor:</label>
-                <input type="text" id="proveedor" name="proveedor" />
-            </div>
-            <div>
-                <label htmlFor="cantidad">Cantidad:</label>
-                <input type="text" id="cantidad" name="cantidad" />
-            </div>
-            <div className='containerButtonCargar'>
-                <button type="submit">Cargar Producto</button>
-            </div>
-        </form>
         </div>
     );
 }

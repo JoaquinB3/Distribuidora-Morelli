@@ -1,10 +1,9 @@
 import React from 'react'
 import "./_tabla.scss"
-import "../../utils/stock"
 import {stock} from "../../utils/stock"
 
 
-const Tabla = ({stock}) => {
+const Tabla = () => {
   return (
     <div className='containerTable'>
       <table className='table'>
@@ -20,13 +19,13 @@ const Tabla = ({stock}) => {
         </thead>
         <tbody>
             {stock.map(item => (
-            <tr  key="{item.id}">
-                <td>${item.id}</td>
-                <td>${item.nombre}</td>
-                <td>${item.marca}</td>
-                <td>${item.tipo}</td>
-                <td>${item.proveedor}</td>
-                <td>${item.cantidad}</td>
+            <tr  key={item.id}>
+                <td>{item.id}</td>
+                <td>{item.nombre}</td>
+                <td>{item.marca}</td>
+                <td>{item.tipo}</td>
+                <td>{item.proveedor}</td>
+                <td>{item.cantidad}</td>
             </tr>
             ))}
         </tbody>

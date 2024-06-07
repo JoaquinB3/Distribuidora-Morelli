@@ -1,17 +1,25 @@
-.containerAgregarProducto{
-    background-color: white;
+.capaDisfuminada{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: RGBA(0,0,0,0.75); 
+}
+
+
+.containerAgregarProducto{
+    background-color: white;
+    width: 450px;
+    height: 500px;
+    position: absolute;
     color: black;
     padding: 15px;
     border-radius: 1.5em;
-    .containerButtonTitle{
-        width: 100%;
-        display: flex;
-        align-items: start;
-        justify-content: space-between;
+    .containerButton{
         button{
             border: solid 1px black;
             background-color: white;
@@ -29,6 +37,14 @@
                 transition: ease .5s;
             }
         }
+    }
+    
+    .containerTitle{
+        width: 100%;
+        display: flex;
+        align-items: start;
+        justify-content: space-around;
+        
         
     }
 }
@@ -36,6 +52,8 @@
 #formulario{
     color: black;
     width: 100%;
+    display: flex;
+    flex-direction: column;
     div{
         display: flex;
         justify-content: space-between;
@@ -45,6 +63,8 @@
         background-color: rgb(230, 249, 255);
         color: black;
         border: none;
+        height: 30px;
+        width: 350px;
     }
     .containerButtonCargar{
         margin-top: 30px;

@@ -22,8 +22,9 @@ export default function Productos() {
       <div className='containerButtons'>
       <Button icon={< ImBoxAdd />} onClick={handleClickAgregar}></Button>
       </div>
-
+      
       {isClicked && <AgregarProducto setIsClicked={setIsClicked}/>}
+
 
       <Tabla/>
     
