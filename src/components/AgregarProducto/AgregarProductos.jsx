@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import "./_agregarProducto.scss"
 import { RxCross1 } from "react-icons/rx";
-import { stock } from '../../utils/stock'; 
 
 
 
-export default function AgregarProducto({setIsClicked}) {
+export default function AgregarProducto({setIsClicked, addProduct}) {
  
 
     // Función para manejar el envío del formulario de carga de producto
@@ -33,7 +32,9 @@ export default function AgregarProducto({setIsClicked}) {
             cantidad
         }
 
-        stock.push(newProduct)
+        addProduct(newProduct);
+        console.log(newProduct);
+        setIsClicked(false);
     };
 
     return (

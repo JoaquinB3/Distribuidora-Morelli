@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./_tabla.scss"
-import {stock} from "../../utils/stock"
+import {stock as initialStock} from "../../utils/stock"
 
 
-const Tabla = () => {
+const Tabla = ({stock}) => {
+  
   return (
     <div className='containerTable'>
       <table className='table'>
