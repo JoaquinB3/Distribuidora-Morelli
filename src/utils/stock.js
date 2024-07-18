@@ -1,4 +1,4 @@
-export const stock = [{
+export let stock = [{
     id: 1,
     nombre: 'sprite',
     marca: 'Coca Cola',

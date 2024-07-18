@@ -48,31 +48,25 @@ export default function AgregarProducto({setIsClicked, addProduct}) {
             </div>
             <form id='formulario' onSubmit={(e)=>handleSubmit(e)}>
                 <div>
-                    <label htmlFor="id">ID:</label>
-                    <input type="text" id="id" name="id" />
+                    <input type="text" id="id" name="id" placeholder='ID' />
                 </div>
                 <div>
-                    <label htmlFor="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" />
+                    <input type="text" id="nombre" name="nombre" placeholder='NOMBRE' />
                 </div>
                 <div>
-                    <label htmlFor="marca">Marca:</label>
-                    <input type="text" id="marca" name="marca" />
+                    <input type="text" id="marca" name="marca" placeholder='MARCA' />
                 </div>
                 <div>
-                    <label htmlFor="tipo">Tipo:</label>
-                    <input type="text" id="tipo" name="tipo" />
+                    <input type="text" id="tipo" name="tipo" placeholder='TIPO' />
                 </div>
                 <div>
-                    <label htmlFor="proveedor">Proveedor:</label>
-                    <input type="text" id="proveedor" name="proveedor" />
+                    <input type="text" id="proveedor" name="proveedor" placeholder='PROVEEDOR' />
                 </div>
                 <div>
-                    <label htmlFor="cantidad">Cantidad:</label>
-                    <input type="text" id="cantidad" name="cantidad" />
+                    <input type="text" id="cantidad" name="cantidad" placeholder='CANTIDAD' />
                 </div>
                 <div className='containerButtonCargar'>
-                    <button type="submit">Cargar Producto</button>
+                    <button type="submit" className='btnCargarProducto'>Cargar Producto</button>
                 </div>
             </form>
             </div>

@@ -12,6 +12,17 @@
     border-collapse: collapse;
     .headTable{
         background-color: #2b2b2b;
+    }
+}
 
+.buttonTable{
+    font-size: 20px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    padding: 3px;
+    &:hover{
+        color: red;
     }
 }
