@@ -52,3 +52,36 @@
   }
 }
 
+.mainClientes{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  .containerSearchAdd{
+    width: 100%;
+    display: inline-block;
+    .containerSerch{
+      display: flex;
+      align-items: center;
+      margin-left: 15px;
+      input{
+        background-color: transparent;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid black;
+        color: rgb(185, 185, 185);
+        width: 200px;
+        padding: 5px 5px;
+      }
+    }
+    .containerAdd{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+

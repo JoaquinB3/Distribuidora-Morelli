@@ -4,24 +4,25 @@ import { ImBoxAdd } from 'react-icons/im';
 import { IoMdSearch } from "react-icons/io";
 import AgregarProducto from '../components/AgregarProducto/AgregarProductos';
 import Tabla from '../components/Tabla/Tabla';
-import { stock as initialStock } from "../utils/stock";
-import { productosColumna } from '../components/Tabla/ColumnasTabla/productosColumna';
+import { clientesBD as initialClientesBD} from '../utils/clientesBD';
+import { clientesColumna } from '../components/Tabla/ColumnasTabla/clientesColumna';
 
-export default function Productos() {
+
+export default function Clientes() {
   const [isClicked, setIsClicked] = useState(false);
-  const [stock, setStock] = useState(initialStock);
+  const [clientes, setclientes] = useState(initialClientesBD);
   const [searchText, setSearchText] = useState('');
 
   const handleClickAgregar = () => {
     setIsClicked(true);
   };
 
-  const addProduct = (newProduct) => {
-    setStock([...stock, newProduct]);
+  const addProduct = (newCliente) => {
+    setclientes([...clientes, newProduct]);
   };
 
-  const deleteProduct = (idProduct) => {
-    const nuevoStock = stock.filter(p => p.id !== idProduct);
+  const deleteProduct = (idCliente) => {
+    const nuevoClientes = clientes.filter(p => p.id !== idCliente);
     setStock(nuevoStock);
   };
 
@@ -29,14 +30,14 @@ export default function Productos() {
     setSearchText(e.target.value);
   };
 
-  const filteredStock = stock.filter((item)=>
+  const filteredStock = clientes.filter((item)=>
     item.nombre.toLowerCase().includes(searchText.toLowerCase()) || 
-    item.marca.toLowerCase().includes(searchText.toLowerCase())
+    item.razonSocial.toLowerCase().includes(searchText.toLowerCase())
   );
 
 
   return (
-    <div className='mainProductos'>
+    <div className='mainClientes'>
 
       <div className='containerSearchAdd'>
         <div className='containerSerch'>
@@ -55,10 +56,8 @@ export default function Productos() {
       
       {isClicked && <AgregarProducto setIsClicked={setIsClicked} addProduct={addProduct} />}
 
-      {/* <Tabla stock={filteredStock} deleteProduct={deleteProduct} /> */}
-      <Tabla col={productosColumna} data={filteredStock} deleteProduct={deleteProduct}  ></Tabla>
+      <Tabla col={clientesColumna} data={filteredStock} deleteProduct={deleteProduct}  ></Tabla>
 
     </div>
   );
 }
-

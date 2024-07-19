@@ -8,6 +8,7 @@ import './index.css'
 import App from './routes/App';
 import ErrorPage from './routes/ErrorPage';
 import Productos from './routes/Productos';
+import Clientes from './routes/Clientes';
 import MainTablero from './components/MainTablero';
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
         path: "/productos",
         element: <Productos />
       },
+      {
+        path: "/clientes",
+        element: <Clientes/>
+      }
     ],
   },
   

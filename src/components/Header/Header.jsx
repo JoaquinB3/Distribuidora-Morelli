@@ -24,7 +24,7 @@ export default function Header() {
             <Link to={`/productos`}>
               <li className="item"><span>PRODUCTOS</span></li>
             </Link>
-            <Link to={`/productos`}>
+            <Link to={`/clientes`}>
               <li className="item"><span>CLIENTES</span></li>
             </Link>
             <Link to={`/productos`}>
