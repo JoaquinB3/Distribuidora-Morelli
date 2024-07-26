@@ -1,9 +1,38 @@
+.containerTableSection{
+    width: 95%;
+    margin-top: 50px;
+}
+
 .containerTable{
-    width: 95%;   
-    display: flex;
-    justify-content: center;
     background-color: #161616;
     border-radius: .5em;
+    .containerButtonTable{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.containerAdd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .buttonAdd{
+        width: 80px;
+        height: 40px;
+        background-color: black;
+        border-radius: 0.5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-style: none;
+        margin: 10px;
+        &:hover{
+            background-color:white;
+            color: black;
+            transition: ease .8s;
+        }
+    }
 }
 
 .table{

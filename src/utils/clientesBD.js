@@ -1,5 +1,5 @@
 export let clientesBD = [{
-    cod: 3,
+    id: 3,
     nombre: "Botteri Joaquin",
     razonsocial: "Botteri SA",
     contacto: "",
@@ -7,7 +7,7 @@ export let clientesBD = [{
     mail: "joaquin@mail.com",
 },
 {
-    cod: 1,
+    id: 1,
     nombre: "Cangiani Marcelo",
     razonsocial: "Logistica Cangiani",
     contacto: "",
@@ -15,7 +15,7 @@ export let clientesBD = [{
     mail: "marcelo@mail.com",
 },
 {
-    cod: 5,
+    id: 5,
     nombre: "Morelli Ariel",
     razonsocial: "MAVI",
     contacto: "",
@@ -23,7 +23,7 @@ export let clientesBD = [{
     mail: "mavi@mail.com",
 },
 {
-    cod: 2,
+    id: 2,
     nombre: "La bolita",
     razonsocial: "Marrones SA",
     contacto: "",

@@ -1,39 +1,80 @@
-import React, { useState } from 'react';
-import { Button } from '../components/Button/Button';
-import { ImBoxAdd } from 'react-icons/im';
+import { useState } from 'react';
 import { IoMdSearch } from "react-icons/io";
-import AgregarProducto from '../components/AgregarProducto/AgregarProductos';
-import Tabla from '../components/Tabla/Tabla';
-import { clientesBD as initialClientesBD} from '../utils/clientesBD';
-import { clientesColumna } from '../components/Tabla/ColumnasTabla/clientesColumna';
+import { clientesBD } from '../utils/clientesBD';
+import Table from '../components/Tabla/Tabla';
+
 
 
 export default function Clientes() {
-  const [isClicked, setIsClicked] = useState(false);
-  const [clientes, setclientes] = useState(initialClientesBD);
+  const [clientes, setClientes] = useState(clientesBD);
   const [searchText, setSearchText] = useState('');
 
-  const handleClickAgregar = () => {
-    setIsClicked(true);
+  const addCliente = (e) => {
+   console.log(e); 
+    e.preventDefault();
+
+        const id = crypto.randomUUID();
+        const nombre = e.target.nombre.value;
+        const razonsocial = e.target.razonsocial.value;
+        const contacto = e.target.contacto.value;
+        const telefono = e.target.telefono.value;
+        const mail = e.target.mail.value;
+        
+        const newCliente = {
+            id,
+            nombre,
+            razonsocial,
+            contacto,
+            telefono,
+            mail
+        }
+
+        const newClientesBD = [...clientes, newCliente]
+
+        setClientes(newClientesBD);
+        console.log(newClientesBD);
   };
 
-  const addProduct = (newCliente) => {
-    setclientes([...clientes, newProduct]);
+  const updateCliente = (e) => {
+    e.preventDefault();
+    const id = crypto.randomUUID();
+        const nombre = e.target.nombre.value;
+        const razonsocial = e.target.razonsocial.value;
+        const contacto = e.target.contacto.value;
+        const telefono = e.target.telefono.value;
+        const mail = e.target.mail.value;
+        
+        const newItem = {
+            id,
+            nombre,
+            razonsocial,
+            contacto,
+            telefono,
+            mail
+        }
+
+    console.log(newItem);
+
+    const newClientes = clientes.map((item) => (item.id === id ? newItem : item));
+
+    setClientes(newClientes);
+
+    alert("Item actualizado");
   };
 
-  const deleteProduct = (idCliente) => {
-    const nuevoClientes = clientes.filter(p => p.id !== idCliente);
-    setStock(nuevoStock);
+  const deleteCliente = (id) => {
+    const newClientes = clientes.filter((item) => item.id !== id);
+    setClientes(newClientes);
   };
 
   const handleSearchChange = (e)=>{
     setSearchText(e.target.value);
   };
 
-  const filteredStock = clientes.filter((item)=>
-    item.nombre.toLowerCase().includes(searchText.toLowerCase()) || 
-    item.razonSocial.toLowerCase().includes(searchText.toLowerCase())
-  );
+  // const filteredCliente = clientes.filter((item)=>
+  //   item.nombre.toLowerCase().includes(searchText.toLowerCase()) || 
+  //   item.razonSocial.toLowerCase().includes(searchText.toLowerCase())
+  // );
 
 
   return (
@@ -43,20 +84,23 @@ export default function Clientes() {
         <div className='containerSerch'>
           <input 
             type="text"
-            placeholder='Buscar producto'
+            placeholder='Buscar Cliente'
             value={searchText}
             onChange={handleSearchChange}
           />
           <IoMdSearch />
         </div>
-        <div className='containerAdd'>
-          <Button icon={<ImBoxAdd />} onClick={handleClickAgregar}></Button>
-        </div>
       </div>
       
-      {isClicked && <AgregarProducto setIsClicked={setIsClicked} addProduct={addProduct} />}
-
-      <Tabla col={clientesColumna} data={filteredStock} deleteProduct={deleteProduct}  ></Tabla>
+      < Table 
+        data={clientes} 
+        title="Clientes" 
+        addItem={addCliente}
+        updateItem={updateCliente}  
+        deleteItem={deleteCliente}
+        addDialogTitle={"Agregar Cliente"}
+        updateDialogTitle={"Actualizar Cliente"}
+      />
 
     </div>
   );

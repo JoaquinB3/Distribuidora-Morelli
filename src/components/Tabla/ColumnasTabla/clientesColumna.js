@@ -1,5 +1,5 @@
 export const clientesColumna =[
-    "COD",
+    "ID",
     "NOMBRE",
     "RAZON SOCIAL",
     "CONTACTO",

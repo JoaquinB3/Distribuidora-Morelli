@@ -1,64 +1,113 @@
-import React, { useState } from 'react';
-import { Button } from '../components/Button/Button';
-import { ImBoxAdd } from 'react-icons/im';
+import { useState } from "react";
 import { IoMdSearch } from "react-icons/io";
-import AgregarProducto from '../components/AgregarProducto/AgregarProductos';
-import Tabla from '../components/Tabla/Tabla';
 import { stock as initialStock } from "../utils/stock";
-import { productosColumna } from '../components/Tabla/ColumnasTabla/productosColumna';
+import Table from "../components/Tabla/Tabla";
 
 export default function Productos() {
-  const [isClicked, setIsClicked] = useState(false);
   const [stock, setStock] = useState(initialStock);
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState("");
 
-  const handleClickAgregar = () => {
-    setIsClicked(true);
+  const addProduct = (e) => {
+    e.preventDefault();
+
+    // const id = crypto.randomUUID();
+    const id = 8;
+    const nombre = e.target.nombre.value;
+    const marca = e.target.marca.value;
+    const tipo = e.target.tipo.value;
+    const proveedor = e.target.proveedor.value;
+    const cantidad = e.target.cantidad.value;
+    const preciounidad = e.target.preciounidad.value;
+    const preciopack = e.target.preciopack.value;
+
+    const newProducto = {
+      id,
+      nombre,
+      marca,
+      tipo,
+      proveedor,
+      cantidad,
+      preciounidad,
+      preciopack,
+    };
+
+    const newStock = [...stock, newProducto];
+
+    setStock(newStock);
+    console.log(newStock);
   };
 
-  const addProduct = (newProduct) => {
-    setStock([...stock, newProduct]);
+  const updateProducto = (e) => {
+    e.preventDefault();
+        // const id = crypto.randomUUID();
+        const id = 8;
+        const nombre = e.target.nombre.value;
+        const marca = e.target.marca.value;
+        const tipo = e.target.tipo.value;
+        const proveedor = e.target.proveedor.value;
+        const cantidad = e.target.cantidad.value;
+        const preciounidad = e.target.preciounidad.value;
+        const preciopack = e.target.preciopack.value;
+
+
+        const newItem = {
+            id,
+            nombre,
+            marca,
+            tipo,
+            proveedor,
+            cantidad,
+            preciounidad,
+            preciopack
+        }
+
+    console.log(newItem);
+
+    const newStock = stock.map((item) => (item.id === id ? newItem : item));
+
+    setStock(newStock);
+
+    alert("Item actualizado");
   };
 
-  const deleteProduct = (idProduct) => {
-    const nuevoStock = stock.filter(p => p.id !== idProduct);
-    setStock(nuevoStock);
+  const deleteProducto = (id) => {
+    const newStock = stock.filter((item) => item.id !== id);
+    setStock(newStock);
   };
 
-  const handleSearchChange = (e)=>{
+  const handleSearchChange = (e) => {
     setSearchText(e.target.value);
   };
 
-  const filteredStock = stock.filter((item)=>
-    item.nombre.toLowerCase().includes(searchText.toLowerCase()) || 
-    item.marca.toLowerCase().includes(searchText.toLowerCase())
-  );
-
+  // const filteredStock = stock.filter((item)=>
+  //   item.nombre.toLowerCase().includes(searchText.toLowerCase()) ||
+  //   item.marca.toLowerCase().includes(searchText.toLowerCase())
+  // );
 
   return (
-    <div className='mainProductos'>
-
-      <div className='containerSearchAdd'>
-        <div className='containerSerch'>
-          <input 
+    <div className="mainProductos">
+      <div className="containerSearchAdd">
+        <div className="containerSerch">
+          <input
             type="text"
-            placeholder='Buscar producto'
+            placeholder="Buscar producto"
             value={searchText}
             onChange={handleSearchChange}
           />
           <IoMdSearch />
         </div>
-        <div className='containerAdd'>
-          <Button icon={<ImBoxAdd />} onClick={handleClickAgregar}></Button>
-        </div>
       </div>
-      
-      {isClicked && <AgregarProducto setIsClicked={setIsClicked} addProduct={addProduct} />}
 
-      {/* <Tabla stock={filteredStock} deleteProduct={deleteProduct} /> */}
-      <Tabla col={productosColumna} data={filteredStock} deleteProduct={deleteProduct}  ></Tabla>
+      <Table 
+        data={stock} 
+        title="Productos" 
+        addItem={addProduct} 
+        updateItem={updateProducto}  
+        deleteItem={deleteProducto}
+        addDialogTitle={"Agregar producto"}
+        updateDialogTitle={"Actualizar producto"}
+      />
 
     </div>
   );
 }
-

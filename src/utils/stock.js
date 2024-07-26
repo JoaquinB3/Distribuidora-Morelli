@@ -4,7 +4,9 @@ export let stock = [{
     marca: 'Coca Cola',
     tipo: '1.5 L',
     proveedor: 'Carlos',
-    cantidad: 20
+    cantidad: 20,
+    preciounidad: 1550,
+    preciopack: 9300
 },
 {
     id: 4,
@@ -12,7 +14,9 @@ export let stock = [{
     marca: 'Brahma',
     tipo: '1.5 L',
     proveedor: 'Juan',
-    cantidad: 23
+    cantidad: 23,
+    preciounidad: 1100,
+    preciopack: 6600
 },
 {
     id: 5,
@@ -20,6 +24,8 @@ export let stock = [{
     marca: 'Pepsi',
     tipo: '1.5 L',
     proveedor: 'Juan',
-    cantidad: 17
+    cantidad: 17,
+    preciounidad: 1400,
+    preciopack: 8400
 }
 ];

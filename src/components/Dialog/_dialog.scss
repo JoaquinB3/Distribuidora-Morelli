@@ -1,0 +1,34 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+  z-index: 1000; /* Asegura que esté por debajo del diálogo */
+  display: block; /* Asegura que la capa sea visible cuando se active */
+}
+
+/* Estilo para el diálogo */
+.containerDialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra el diálogo horizontal y verticalmente */
+  background: #333; /* Gris oscuro para el diálogo */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  height: 450px;
+  max-width: 100%;
+  max-height: 100%;
+  z-index: 1001; /* Asegura que esté por encima de la capa de fondo */
+}
+
+.formDialog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
