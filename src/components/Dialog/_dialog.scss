@@ -4,26 +4,24 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
-  z-index: 1000; /* Asegura que esté por debajo del diálogo */
-  display: block; /* Asegura que la capa sea visible cuando se active */
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: block;
 }
 
-/* Estilo para el diálogo */
 .containerDialog {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Centra el diálogo horizontal y verticalmente */
-  background: #333; /* Gris oscuro para el diálogo */
+  transform: translate(-50%, -50%);
+  background: #333; 
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  width: 400px;
-  height: 450px;
-  max-width: 100%;
-  max-height: 100%;
-  z-index: 1001; /* Asegura que esté por encima de la capa de fondo */
+  width: 400px;-height: 100%;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .formDialog{
@@ -31,4 +29,44 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    input{
+        margin: 10px 0px;
+        display:inline-block;
+        width: 400px;
+        height: 30px;
+        border-radius: 0.5rem;
+        border: none;
+        padding-left: 15px;
+        outline: none;
+    }
+}
+
+.buttonClosed{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5rem;
+    border: none;
+    outline: none;
+    &:hover{
+        background-color: red;
+        color: black;
+    }
+}
+
+.buttonSaved{
+    width: 80px;
+    height: 40px;
+    background-color: black;
+    border-radius: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+    margin: 10px;
+    &:hover{
+        background-color:white;
+        color: black;
+        transition: ease .8s;
+    }
 }

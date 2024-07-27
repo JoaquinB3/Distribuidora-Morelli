@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { IoMdSearch } from "react-icons/io";
 import { clientesBD } from '../utils/clientesBD';
+import { generatorID } from '../utils/generatorID';
 import Table from '../components/Tabla/Tabla';
 
 
@@ -13,7 +14,7 @@ export default function Clientes() {
    console.log(e); 
     e.preventDefault();
 
-        const id = crypto.randomUUID();
+        const id = generatorID();
         const nombre = e.target.nombre.value;
         const razonsocial = e.target.razonsocial.value;
         const contacto = e.target.contacto.value;
@@ -71,10 +72,10 @@ export default function Clientes() {
     setSearchText(e.target.value);
   };
 
-  // const filteredCliente = clientes.filter((item)=>
-  //   item.nombre.toLowerCase().includes(searchText.toLowerCase()) || 
-  //   item.razonSocial.toLowerCase().includes(searchText.toLowerCase())
-  // );
+  const filteredClientes = clientes.filter((item)=>
+    item.nombre.toLowerCase().includes(searchText.toLowerCase()) || 
+    item.razonsocial.toLowerCase().includes(searchText.toLowerCase())
+  );
 
 
   return (
@@ -93,7 +94,7 @@ export default function Clientes() {
       </div>
       
       < Table 
-        data={clientes} 
+        data={filteredClientes} 
         title="Clientes" 
         addItem={addCliente}
         updateItem={updateCliente}  

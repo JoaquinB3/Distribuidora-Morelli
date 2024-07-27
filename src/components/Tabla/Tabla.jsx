@@ -30,7 +30,7 @@ export default function Table({
 
   return (
     <div className='containerTableSection'>
-      <p>{title}</p>
+      <p className="tituloTabla">{title}</p>
       <div className='containerAdd'>
         <button className="buttonAdd" onClick={handleAdd}><ImBoxAdd/></button>
       </div>
@@ -59,8 +59,8 @@ export default function Table({
           </tbody>
         </table>
       </div>
-      <Dialog
-        title={updateDialogTitle}
+      <Dialog 
+        title={addDialogTitle}
         action={addItem}
         click={clickAdd}
         setClick={setClickAdd}
@@ -68,7 +68,7 @@ export default function Table({
       ></Dialog>
 
       <Dialog
-        title={addDialogTitle}
+        title={updateDialogTitle}
         action={updateItem}
         item={item}
         click={clickUpdate}
@@ -77,52 +77,3 @@ export default function Table({
     </div>
   );
 }
-
-
-
-
-
-
-// import "./_tabla.scss";
-// import { GoPencil } from "react-icons/go";
-// import { MdDeleteOutline } from "react-icons/md";
-
-
-// const Tabla = ({col, data, deleteItem }) => {
-//   return (
-//     <div className='containerTable'>
-//       <table className='table'>
-//         <thead className='headTable'>
-//           <tr>
-//             {col.map((campo, index) => (
-//               <th key={index}>{campo}</th>
-//             ))}
-//             <th></th>
-//             <th></th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {data.map(item => (
-//             <tr key={item.id}>
-//               {col.map((campo, index) => (
-//                 <td key={index}>{item[campo.toLowerCase().replace(/\s+/g, '')]}</td>
-//               ))}
-//               <td><button className='buttonTable'><GoPencil /></button></td>
-//               <td><button className='buttonTable' onClick={() => deleteItem(item.id)}><MdDeleteOutline /></button></td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// };
-
-// export default Tabla;
-
-
-
-
-
-
-
-

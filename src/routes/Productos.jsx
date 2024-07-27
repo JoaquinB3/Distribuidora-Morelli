@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IoMdSearch } from "react-icons/io";
 import { stock as initialStock } from "../utils/stock";
+import { generatorID } from '../utils/generatorID';
 import Table from "../components/Tabla/Tabla";
 
 export default function Productos() {
@@ -10,8 +11,7 @@ export default function Productos() {
   const addProduct = (e) => {
     e.preventDefault();
 
-    // const id = crypto.randomUUID();
-    const id = 8;
+    const id = generatorID();
     const nombre = e.target.nombre.value;
     const marca = e.target.marca.value;
     const tipo = e.target.tipo.value;
@@ -79,10 +79,15 @@ export default function Productos() {
     setSearchText(e.target.value);
   };
 
-  // const filteredStock = stock.filter((item)=>
-  //   item.nombre.toLowerCase().includes(searchText.toLowerCase()) ||
-  //   item.marca.toLowerCase().includes(searchText.toLowerCase())
+  // const filteredClientes = clientes.filter((item)=>
+  //   item.nombre.toLowerCase().includes(searchText.toLowerCase()) || 
+  //   item.razonsocial.toLowerCase().includes(searchText.toLowerCase())
   // );
+
+  const filteredStock = stock.filter((item) => 
+    item.nombre.toLowerCase().includes(searchText.toLowerCase()) ||
+    item.nombre.toLowerCase().includes(searchText.toLowerCase())
+  );
 
   return (
     <div className="mainProductos">
@@ -99,7 +104,7 @@ export default function Productos() {
       </div>
 
       <Table 
-        data={stock} 
+        data={filteredStock} 
         title="Productos" 
         addItem={addProduct} 
         updateItem={updateProducto}  

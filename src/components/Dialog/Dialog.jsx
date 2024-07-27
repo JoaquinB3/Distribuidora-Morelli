@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./_dialog.scss";
+import { MdClose } from "react-icons/md";
 
 export const Dialog = ({ title, action, item, click, setClick, fields }) => {
   const [display, setDisplay] = useState("none");
@@ -29,9 +30,9 @@ export const Dialog = ({ title, action, item, click, setClick, fields }) => {
   return (
     <div className="overlay" style={{display}}>
       <div className="containerDialog" style={{ display }}>
-        <div>
+        <div>    
+          <button className="buttonClosed" onClick={() => setClick(false)}><MdClose /></button>
           <p>{title}</p>
-          <button onClick={() => setClick(false)}>Close</button>
         </div>
 
         <form className="formDialog" onSubmit={handleSubmit}>
@@ -40,20 +41,21 @@ export const Dialog = ({ title, action, item, click, setClick, fields }) => {
                 if (key !== "id") {
                   return (
                     <div key={key}>
-                      <label htmlFor={key}>{key}</label>
+                      {/* <label htmlFor={key}>{key}</label> */}
                       <input
                         type={typeof itemTable[key] === "number" ? "number" : "text"}
                         name={key}
                         id={key}
                         value={itemTable[key]}
                         onChange={handleChange}
+                        placeholder={key}
                       />
                     </div>
                   );
                 } else {
                   return (
                     <div key={key}>
-                      <label htmlFor={key}>{key}</label>
+                      {/* <label htmlFor={key}>{key}</label> */}
                       <input
                         type={typeof itemTable[key] === "number" ? "number" : "text"}
                         name={key}
@@ -61,6 +63,7 @@ export const Dialog = ({ title, action, item, click, setClick, fields }) => {
                         value={itemTable[key]}
                         disabled
                         onChange={handleChange}
+                        placeholder={key}
                       />
                     </div>
                   );
@@ -70,13 +73,13 @@ export const Dialog = ({ title, action, item, click, setClick, fields }) => {
                 if (key !== "id") {
                   return (
                     <div key={key}>
-                      <label htmlFor={key}>{key}</label>
-                      <input type={typeof fieldsTable[key]} name={key} id={key} />
+                      {/* <label htmlFor={key}>{key}</label> */}
+                      <input type={typeof fieldsTable[key]} name={key} id={key} placeholder={key} />
                     </div>
                   );
                 }
               })}
-          <button type="submit">Guardar</button>
+          <button className="buttonSaved" type="submit">Guardar</button>
         </form>
       </div>
     </div>
