@@ -1,8 +1,8 @@
-import React from 'react'
+// import React from 'react'
 import "./_header.scss"
 import { Logo } from '../Logo/Logo'
-import { useState } from 'react'
-import { Outlet, Link } from 'react-router-dom'
+// import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
 
@@ -27,17 +27,20 @@ export default function Header() {
             <Link to={`/clientes`}>
               <li className="item"><span>CLIENTES</span></li>
             </Link>
-            <Link to={`/productos`}>
+            <Link to={`/`}>
               <li className="item"><span>COMPRAS</span></li>
             </Link>
-            <Link to={`/productos`}>
+            <Link to={`/`}>
               <li className="item"><span>VENTAS</span></li>
             </Link>
-            <Link to={`/productos`}>
+            <Link to={`/`}>
               <li className="item"><span>REMITO</span></li>
             </Link>
-            <Link to={`/productos`}>
+            <Link to={`/`}>
               <li className="item"><span>CONSULTAR VENTAS</span></li>
+            </Link>
+            <Link to={`/cajaDiaria`}>
+              <li className='item'><span>CAJA DIARIA</span></li>
             </Link>
         </ul>
     </div>

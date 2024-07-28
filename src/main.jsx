@@ -10,6 +10,8 @@ import ErrorPage from './routes/ErrorPage';
 import Productos from './routes/Productos';
 import Clientes from './routes/Clientes';
 import MainTablero from './components/MainTablero';
+import CajaDiaria from './routes/CajaDiaria';
+
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/clientes",
         element: <Clientes/>
+      },
+      {
+        path: "/cajaDiaria",
+        element: <CajaDiaria/>
       }
     ],
   },
