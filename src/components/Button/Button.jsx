@@ -1,12 +1,16 @@
 import "./_button.scss"
 
-export const Button = ({children,icon,onClick}) => {
-
+const Button = ({text, icon, onCLick}) => {
   return (
-      <button className='button' onClick={onClick}>
+    <div>
+      <button className="button" onClick={onCLick}>        
+        {text}
         {icon}
-        {children}
       </button>
+    </div>
   )
 }
+
+export default Button
+
 

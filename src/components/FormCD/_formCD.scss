@@ -1,0 +1,38 @@
+.containerFormCD{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    form{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #1a1a1a;
+        border-radius: .5em;
+    }
+}
+
+.containerHead{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    input{
+        margin: 10px 0px;
+        display:inline-block;
+        height: 30px;
+        border-radius: 0.5rem;
+        border: none;
+        padding-left: 15px;
+        outline: none;
+    }
+}
+.buttons{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .button{
+        width: 40px;
+        margin: 20px;
+    }
+}
